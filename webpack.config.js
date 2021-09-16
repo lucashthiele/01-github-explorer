@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebapckPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -9,6 +10,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  plugins: [
+    new HtmlWebapckPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+    })
+  ],
+  devServer: {
+    static: path.resolve(__dirname, 'public'),
   },
   module: {
     rules: [
